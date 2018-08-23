@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>IE6下常见的兼容性问题 | Poetry&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CSS,csshack," />
+  
+
+  <meta name="description" content="常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确 1234567891011121314151617181920.box&amp;#123;    width:400px;&amp;#125;.left&amp;#123;    width:200px;    height:210px;    background:red;    float:left&amp;#125;.right&amp;#123;    wi">
+<meta name="keywords" content="CSS,csshack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IE6下常见的兼容性问题">
+<meta property="og:url" content="http://blog.poetries.top/2017/02/07/ie-compatibility-summary/index.html">
+<meta property="og:site_name" content="Poetry&#39;s Blog">
+<meta property="og:description" content="常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确 1234567891011121314151617181920.box&amp;#123;    width:400px;&amp;#125;.left&amp;#123;    width:200px;    height:210px;    background:red;    float:left&amp;#125;.right&amp;#123;    wi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/1-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/1-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/2-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/2-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/3-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/4-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/5-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/5-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/6-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/6-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/7-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/7-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/8-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/8-2.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/9-1.png">
+<meta property="og:image" content="http://7xq6al.com1.z0.glb.clouddn.com/9-2.png">
+<meta property="og:updated_time" content="2018-08-23T01:41:37.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IE6下常见的兼容性问题">
+<meta name="twitter:description" content="常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确 1234567891011121314151617181920.box&amp;#123;    width:400px;&amp;#125;.left&amp;#123;    width:200px;    height:210px;    background:red;    float:left&amp;#125;.right&amp;#123;    wi">
+<meta name="twitter:image" content="http://7xq6al.com1.z0.glb.clouddn.com/1-1.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+
+  
+
+  
+
+  <!-- 加载gitment的css和js文件 -->
+<link rel="stylesheet" href="/css/gitment.css"> 
+<script src="/js/gitment.js"></script>
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确"><span class="toc-text">常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动"><span class="toc-text">常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题三：p里面不要套用p标签或者标题标签"><span class="toc-text">常见问题三：p里面不要套用p标签或者标题标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题四：IE6下最小高度问题"><span class="toc-text">常见问题四：IE6下最小高度问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题五：border-1px-dotted-IE6不支持"><span class="toc-text">常见问题五：border:1px dotted; IE6不支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题六：IE6下，父元素用边框，子元素的margin会消失"><span class="toc-text">常见问题六：IE6下，父元素用边框，子元素的margin会消失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题七：IE6双边距bug：横向的margin值会被放大为两倍"><span class="toc-text">常见问题七：IE6双边距bug：横向的margin值会被放大为两倍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别-gt-3px的时候"><span class="toc-text">常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别&gt;3px的时候</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题九：IE6，7下-li本身没有浮动，但是li里面的内容有浮动，每个li下边就会产生一个间距"><span class="toc-text">常见问题九：IE6，7下 li本身没有浮动，但是li里面的内容有浮动，每个li下边就会产生一个间距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十：IE6，7下面让两个块级元素在一行内显示-都用浮动"><span class="toc-text">常见问题十：IE6，7下面让两个块级元素在一行内显示 都用浮动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失"><span class="toc-text">常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素"><span class="toc-text">常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差"><span class="toc-text">常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十五：IE6不支持固定定位-css没办法解决"><span class="toc-text">常见问题十五：IE6不支持固定定位  css没办法解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十六：IE6-7下，输入类型的表单控件上下各有1px间隙"><span class="toc-text">常见问题十六：IE6 7下，输入类型的表单控件上下各有1px间隙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十七：IE6-7下，输入类型的表单控件加border-none没用"><span class="toc-text">常见问题十七：IE6 7下，输入类型的表单控件加border:none没用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十八："><span class="toc-text">常见问题十八：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见问题十九：IE6不支持tbody"><span class="toc-text">常见问题十九：IE6不支持tbody</span></a></li></ol>
+  </div>
+  <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:72px;right:233px;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+  <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+	$("#toc-eye").click(function(){
+	
+			$("#toc.toc-article").toggle(1000);
+			$(this).css({
+				"right":"265px"
+			});
+		
+	});
+  </script>
+
+
+
+<div class="content content-post CENTER">
+   <canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+<article id="post-ie-compatibility-summary" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">IE6下常见的兼容性问题</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.02.07</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Poetry</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>
+  </span>
+
+
+
+      
+
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h4 id="常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确"><a href="#常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确" class="headerlink" title="常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确"></a>常见问题一：在Ie6下，内容会把父元素设置好的宽高撑开。计算一定要精确</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">210px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">float</span>:left</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">180px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">180px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">25px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/1-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/1-2.png" alt=""></p>
+<a id="more"></a>
+<h4 id="常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动"><a href="#常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动" class="headerlink" title="常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动"></a>常见问题二：在IE6元素浮动，如果宽度需要内容撑开，里面块级元素的内容也要加浮动</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h3</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/2-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/2-2.png" alt=""></p>
+<hr>
+<h4 id="常见问题三：p里面不要套用p标签或者标题标签"><a href="#常见问题三：p里面不要套用p标签或者标题标签" class="headerlink" title="常见问题三：p里面不要套用p标签或者标题标签"></a>常见问题三：p里面不要套用p标签或者标题标签</h4><hr>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/3-1.png" alt=""></p>
+<h4 id="常见问题四：IE6下最小高度问题"><a href="#常见问题四：IE6下最小高度问题" class="headerlink" title="常见问题四：IE6下最小高度问题"></a>常见问题四：IE6下最小高度问题</h4><hr>
+<ul>
+<li><p>当<code>height&lt;19px</code>的时候会被当作19px来处理</p>
+</li>
+<li><p>解决办法：<code>overflow:hidden</code></p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    height:2px;</span><br><span class="line">    background:red;</span><br><span class="line">    overflow:hidden</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/4-1.png" alt=""></p>
+<h4 id="常见问题五：border-1px-dotted-IE6不支持"><a href="#常见问题五：border-1px-dotted-IE6不支持" class="headerlink" title="常见问题五：border:1px dotted; IE6不支持"></a>常见问题五：<code>border:1px dotted</code>; <code>IE6</code>不支持</h4><hr>
+<ul>
+<li>解决办法：切背景平铺</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    border:1px dotted red;</span><br><span class="line">    margin:100px auto;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/5-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/5-2.png" alt=""></p>
+<h4 id="常见问题六：IE6下，父元素用边框，子元素的margin会消失"><a href="#常见问题六：IE6下，父元素用边框，子元素的margin会消失" class="headerlink" title="常见问题六：IE6下，父元素用边框，子元素的margin会消失"></a>常见问题六：IE6下，父元素用边框，子元素的margin会消失</h4><hr>
+<ul>
+<li>解决办法：触发父元素的<code>haslayout</code>;</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">zoom</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="comment">/*padding:1px;*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <img src="http://7xq6al.com1.z0.glb.clouddn.com/6-1.png" alt=""></p>
+<p> <img src="http://7xq6al.com1.z0.glb.clouddn.com/6-2.png" alt=""></p>
+<h4 id="常见问题七：IE6双边距bug：横向的margin值会被放大为两倍"><a href="#常见问题七：IE6双边距bug：横向的margin值会被放大为两倍" class="headerlink" title="常见问题七：IE6双边距bug：横向的margin值会被放大为两倍"></a>常见问题七：<code>IE6</code>双边距<code>bug</code>：横向的<code>margin</code>值会被放大为两倍</h4><hr>
+<ul>
+<li>解决方法：<code>display:inline</code>;</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    background:red;</span><br><span class="line">    float:left;</span><br><span class="line">    margin:100px;</span><br><span class="line">    display:inline;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/7-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/7-2.png" alt=""></p>
+<hr>
+<h4 id="常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别-gt-3px的时候"><a href="#常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别-gt-3px的时候" class="headerlink" title="常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别&gt;3px的时候"></a>常见问题八：IE6下外边距消失：当父元素的宽度和一行内容的宽度的差别<code>&gt;3px</code>的时候</h4><hr>
+<ul>
+<li>IE6双边距bug：横向的<code>margin</code>值会被放大为两倍</li>
+<li>解决方法：<code>display:inline;</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    float:left;</span><br><span class="line">    border:10px solid #000;</span><br><span class="line">    width:600px;</span><br><span class="line">&#125;</span><br><span class="line">.box div&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    background:red;</span><br><span class="line">    margin:20px;</span><br><span class="line">    border:5px solid blue;</span><br><span class="line">    float:left;</span><br><span class="line">    display:inline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/8-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/8-2.png" alt=""></p>
+<h4 id="常见问题九：IE6，7下-li本身没有浮动，但是li里面的内容有浮动，每个li下边就会产生一个间距"><a href="#常见问题九：IE6，7下-li本身没有浮动，但是li里面的内容有浮动，每个li下边就会产生一个间距" class="headerlink" title="常见问题九：IE6，7下 li本身没有浮动，但是li里面的内容有浮动，每个li下边就会产生一个间距"></a>常见问题九：<code>IE6，7</code>下 <code>li</code>本身没有浮动，但是<code>li</code>里面的内容有浮动，每个<code>li</code>下边就会产生一个间距</h4><hr>
+<ul>
+<li>解决办法：<ul>
+<li>1、给<code>li</code>添加 <code>vertical-align:top</code></li>
+<li>2、给<code>li</code>添加浮动</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">list-style</span>:none;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    /*vertical-align:top*/;float:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/9-1.png" alt=""></p>
+<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/9-2.png" alt=""></p>
+<h4 id="常见问题十：IE6，7下面让两个块级元素在一行内显示-都用浮动"><a href="#常见问题十：IE6，7下面让两个块级元素在一行内显示-都用浮动" class="headerlink" title="常见问题十：IE6，7下面让两个块级元素在一行内显示 都用浮动"></a>常见问题十：IE6，7下面让两个块级元素在一行内显示 都用浮动</h4><hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">float</span>:left;<span class="comment">/*margin-left:100px;*/</span></span><br><span class="line">&#125;</span><br><span class="line">```		</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 常见问题十一：<span class="selector-tag">IE6</span>下的文字溢出</span><br><span class="line"><span class="selector-tag">---</span></span><br><span class="line"></span><br><span class="line">&gt; 子元素的宽度和父元素的宽度相差小于3<span class="selector-tag">px</span>的时候，两个浮动元素之间有注释或者行内元素的时候</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">-</span> 解决办法：用<span class="selector-tag">div</span>把注释和行内元素包裹起来</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">float</span>:right</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="comment">&lt;!--IE6下的文字溢出--&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>@poetries<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失"><a href="#常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失" class="headerlink" title="常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失"></a>常见问题十二：IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失</h4><hr>
+<ul>
+<li>解决办法：给定位元素外面包一个div</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">150px</span>; </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">right</span>:-<span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素"><a href="#常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素" class="headerlink" title="常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素"></a>常见问题十三：IE67下，子元素有相对定位属性，父元素的overflow包不住子元素</h4><hr>
+<ul>
+<li>解决办法：给父元素也添加相对定位属性</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">overflow</span>:auto;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.con</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line">```		</span><br><span class="line"></span><br><span class="line">```<span class="selector-tag">html</span></span><br><span class="line">&lt;div class="box"&gt;</span><br><span class="line">	&lt;div class="con"&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差"><a href="#常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差" class="headerlink" title="常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差"></a>常见问题十四：IE6下，绝对定位的父元素的宽高为奇数的时候，元素的right和bottom值会有1px的偏差</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">201px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">201px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">right</span>:-<span class="number">1px</span>;<span class="attribute">bottom</span>:-<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十五：IE6不支持固定定位-css没办法解决"><a href="#常见问题十五：IE6不支持固定定位-css没办法解决" class="headerlink" title="常见问题十五：IE6不支持固定定位  css没办法解决"></a>常见问题十五：IE6不支持固定定位  css没办法解决</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;<span class="comment">/*去除默认外边距、内边距*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">position</span>:fixed;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div class="box"&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十六：IE6-7下，输入类型的表单控件上下各有1px间隙"><a href="#常见问题十六：IE6-7下，输入类型的表单控件上下各有1px间隙" class="headerlink" title="常见问题十六：IE6 7下，输入类型的表单控件上下各有1px间隙"></a>常见问题十六：IE6 7下，输入类型的表单控件上下各有1px间隙</h4><hr>
+<ul>
+<li>解决办法：给input加浮动</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">32px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">28px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十七：IE6-7下，输入类型的表单控件加border-none没用"><a href="#常见问题十七：IE6-7下，输入类型的表单控件加border-none没用" class="headerlink" title="常见问题十七：IE6 7下，输入类型的表单控件加border:none没用"></a>常见问题十七：IE6 7下，输入类型的表单控件加border:none没用</h4><hr>
+<ul>
+<li>解决办法：<ul>
+<li>1、border:0;</li>
+<li>2、给input添加背景颜色</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">32px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">28px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">border</span>:none;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十八："><a href="#常见问题十八：" class="headerlink" title="常见问题十八："></a>常见问题十八：</h4><hr>
+<blockquote>
+<ul>
+<li>1、输入类型的表单控件添加背景图片url和no-repeat之间一定要有空格</li>
+<li>2、输入文字时候，背景图片会跟着移动</li>
+</ul>
+</blockquote>
+<ul>
+<li>解决办法：2、给背景图片固定定位，但是在IE7下 背景图片显示会错误</li>
+<li>最佳办法：把背景图添加给父元素</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">32px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid red; </span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(ball.png) no-repeat; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">    <span class="attribute">border</span>:none;</span><br><span class="line">    <span class="attribute">background</span>:none;</span><br><span class="line">    <span class="comment">/*background:#fff url(ball.png) no-repeat fixed;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常见问题十九：IE6不支持tbody"><a href="#常见问题十九：IE6不支持tbody" class="headerlink" title="常见问题十九：IE6不支持tbody"></a>常见问题十九：IE6不支持tbody</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;&#125;</span><br><span class="line"><span class="selector-tag">table</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border-collapse</span>:collapse;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">tbody</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">tr</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(ball.png) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">td</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>表格<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+<!-- 使用Gitmemt作为评论系统 -->
+<div id="gitment"></div>
+<!-- 主页不要加载gitment -->
+
+<script>
+var gitment = new Gitment({
+  owner: 'poetries',
+  repo: 'poetries.github.io',
+  oauth: {
+    client_id: '1e8dd8b1f1cc682a0e96',
+    client_secret: 'e2e4411114035de33408c87ee77453e034a3da04',
+  },
+})
+gitment.render('gitment')
+</script>
+ 
+
+
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+         <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+         <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+	
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+<script type="text/javascript">
+
+
+    // white theme
+    var body = {color: "#555", background: "#000"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#222"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        //$("#assist_btn1").hide(1500);
+    }
+
+    $(function () {
+		$("#assist_btn2").css("display","none");
+        $("#assist_btn1").click(function() {
+            switch_theme();
+			$("div#toc.toc-article").css({
+				"background":"#eaeaea",
+				"opacity":1
+			});
+			$(".toc-article ol").show();
+			$("#toc.toc-article .toc-title").css("color","#a98602");
+			$("#assist_btn1").css("display","none");
+			$("#assist_btn2").css("display","block");
+        });
+		$("#assist_btn2").click(function() {
+			$("#assist_btn2").css("display","none");
+			$("#assist_btn1").css("display","block");
+			 $("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+            $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+			$(".toc-article ol").toggle(1000);
+        });
+    });
+
+	
+	//背景随机
+
+	var Y, O, E, L, B, C, T, z, N, S, A, I;
+	!function() {
+	var e = function() {
+		for (O.clearRect(0, 0, L, B), T = [{
+			x: 0,
+			y: .7 * B + C
+		}, {
+			x: 0,
+			y: .7 * B - C
+		}]; T[1].x < L + C;) t(T[0], T[1])
+	}, t = function(e, t) {
+			O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+			var n = t.x + (2 * I() - .25) * C,
+				r = a(t.y);
+			O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+				x: n,
+				y: r
+			}
+		}, a = function n(e) {
+			var t = e + (2 * I() - 1.1) * C;
+			return t > B || t < 0 ? n(e) : t
+		};
+	Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+	}()
+
+          
+
+
+
+</script>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持poetries</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>TortoiseSVN的基使用方法 | Poetry&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="SVN," />
+  
+
+  <meta name="description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta name="keywords" content="SVN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TortoiseSVN的基使用方法">
+<meta property="og:url" content="http://blog.poetries.top/2016/07/08/TortoiseSVN的基本安装及使用方法/index.html">
+<meta property="og:site_name" content="Poetry&#39;s Blog">
+<meta property="og:description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780401u5bf.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927804137Lrz.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780423j7W7.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_139278051015SO.png">
+<meta property="og:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780878aoOo.png">
+<meta property="og:updated_time" content="2018-08-23T01:41:37.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TortoiseSVN的基使用方法">
+<meta name="twitter:description" content="签出源代码到本机在本机创建文件夹StartKit，右键点击Checkout，弹出如下图的窗体：">
+<meta name="twitter:image" content="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+
+  
+
+  
+
+  <!-- 加载gitment的css和js文件 -->
+<link rel="stylesheet" href="/css/gitment.css"> 
+<script src="/js/gitment.js"></script>
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#签出源代码到本机"><span class="toc-text">签出源代码到本机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交修改过的文件到SVN服务器"><span class="toc-text">提交修改过的文件到SVN服务器</span></a></li></ol>
+  </div>
+  <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:72px;right:233px;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+  <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+	$("#toc-eye").click(function(){
+	
+			$("#toc.toc-article").toggle(1000);
+			$(this).css({
+				"right":"265px"
+			});
+		
+	});
+  </script>
+
+
+
+<div class="content content-post CENTER">
+   <canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+<article id="post-TortoiseSVN的基本安装及使用方法" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">TortoiseSVN的基使用方法</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.07.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Poetry</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/VCS/">VCS</a>
+  </span>
+
+
+
+      
+
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h4 id="签出源代码到本机"><a href="#签出源代码到本机" class="headerlink" title="签出源代码到本机"></a>签出源代码到本机</h4><p>在本机创建文件夹<code>StartKit</code>，右键点击<code>Checkout</code>，弹出如下图的窗体：<br><a id="more"></a><br><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_13927803776NBs.png" alt="enter description here"></p>
+<p>文本框中输入<code>svn server</code>中的代码库的地址，其他默认，点击OK按钮,就开始签出源代码了</p>
+<p>上图中的<code>Checkout Depth</code>，有4个选项，分别是迁出全部、只签出下一级子目录和文件、只签出文件、只签出空项目，默认的是第一项。上面的例子中，我们也可以使用web的方式访问代码库，在浏览器中输入<code>http://zt.net.henu.edu.cn/svn/StartKit/</code><br>这时候也会弹出对话框，要求输入用户名和密码，通过验证后即可浏览代码库中的内容。</p>
+<p>到此，源代码已经成功签出到刚才新建的StartKit目录中</p>
+<p>打开StartKit目录，可以看到如下图的文件夹结构：</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780401u5bf.png" alt="enter description here"></p>
+<p>一旦你对文件或文件夹做了任何修改，那么文件或文件夹的显示图片机会发生变化</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_13927804137Lrz.png" alt="enter description here"></p>
+<ul>
+<li><strong>不同状态所对应的图片</strong></li>
+</ul>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780423j7W7.png" alt="enter description here"></p>
+<hr>
+<h4 id="提交修改过的文件到SVN服务器"><a href="#提交修改过的文件到SVN服务器" class="headerlink" title="提交修改过的文件到SVN服务器"></a>提交修改过的文件到SVN服务器</h4><p>注意：提交源代码到服务器时，一定确保本机的代码是最新版本，否则可能提交失败，或者造成版本冲突</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_139278051015SO.png" alt="enter description here"></p>
+<ul>
+<li>添加新文件到SVN服务器</li>
+</ul>
+<p>点击<code>TortoiseSVN=&gt;&gt;Add</code>；再<code>SVN Commit</code>这个文件一次，才可以将其真正提交到SVN服务器上的代码库中</p>
+<p>更新本机代码与SVN服务器上最新的版本一致</p>
+<p>只要在需要更新的文件夹上点击右键或在该文件下的空白处点击右键，点击<code>SVN Update</code>，就可以</p>
+<p>注意：更新操作可能会因为版本冲突而失败，这是可以使用合并【<code>Merge</code>】或其他方法解决；也可能因为锁定【<code>Get Lock</code>】而失败，这是需要先解锁【<code>Release Lock</code>】。</p>
+<ul>
+<li><strong>重命名文件或文件夹，并将修改提交到SVN服务器</strong></li>
+</ul>
+<p>要在需要重命名的文件或文件夹上点击右键，点击<code>TortiseSVN=&gt;&gt;Rename</code>…，在弹出的窗体中输入新名称，点击OK按钮，就可以了。此方法也不是直接重命名，而是将该文件或文件夹的名称标记为重命名后名称，也需要我们使用<code>SVN Commit</code>提交到SVN服务器后才真正重命名</p>
+<ul>
+<li><strong>删除文件或文件夹，并将修改提交到SVN服务器</strong></li>
+</ul>
+<p>最简单就是，你直接删除文件或文件夹，然后使用<code>SVN Commit</code>提交更新到SVN服务器。另外一种方法是在你要删除的文件或文件夹上点击右键<code>=&gt;&gt;TortoiseSVN=&gt;&gt;Delete</code>删除,此方法也不是直接删除，而是将该文件或文件夹的状态置为删除，也需要我们使用SVN Commit提交到SVN服务器后才真正删除。</p>
+<p><img src="http://blog.chinaunix.net/attachment/201402/19/27004869_1392780878aoOo.png" alt="enter description here"></p>
+
+    
+  </div>
+</article>
+
+<!-- 使用Gitmemt作为评论系统 -->
+<div id="gitment"></div>
+<!-- 主页不要加载gitment -->
+
+<script>
+var gitment = new Gitment({
+  owner: 'poetries',
+  repo: 'poetries.github.io',
+  oauth: {
+    client_id: '1e8dd8b1f1cc682a0e96',
+    client_secret: 'e2e4411114035de33408c87ee77453e034a3da04',
+  },
+})
+gitment.render('gitment')
+</script>
+ 
+
+
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+         <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+         <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+	
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+<script type="text/javascript">
+
+
+    // white theme
+    var body = {color: "#555", background: "#000"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#222"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        //$("#assist_btn1").hide(1500);
+    }
+
+    $(function () {
+		$("#assist_btn2").css("display","none");
+        $("#assist_btn1").click(function() {
+            switch_theme();
+			$("div#toc.toc-article").css({
+				"background":"#eaeaea",
+				"opacity":1
+			});
+			$(".toc-article ol").show();
+			$("#toc.toc-article .toc-title").css("color","#a98602");
+			$("#assist_btn1").css("display","none");
+			$("#assist_btn2").css("display","block");
+        });
+		$("#assist_btn2").click(function() {
+			$("#assist_btn2").css("display","none");
+			$("#assist_btn1").css("display","block");
+			 $("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+            $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+			$(".toc-article ol").toggle(1000);
+        });
+    });
+
+	
+	//背景随机
+
+	var Y, O, E, L, B, C, T, z, N, S, A, I;
+	!function() {
+	var e = function() {
+		for (O.clearRect(0, 0, L, B), T = [{
+			x: 0,
+			y: .7 * B + C
+		}, {
+			x: 0,
+			y: .7 * B - C
+		}]; T[1].x < L + C;) t(T[0], T[1])
+	}, t = function(e, t) {
+			O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+			var n = t.x + (2 * I() - .25) * C,
+				r = a(t.y);
+			O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+				x: n,
+				y: r
+			}
+		}, a = function n(e) {
+			var t = e + (2 * I() - 1.1) * C;
+			return t > B || t < 0 ? n(e) : t
+		};
+	Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+	}()
+
+          
+
+
+
+</script>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持poetries</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

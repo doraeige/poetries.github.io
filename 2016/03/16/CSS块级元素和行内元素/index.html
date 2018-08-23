@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS块级元素和行内元素 | Poetry&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="CSS," />
+  
+
+  <meta name="description" content="HTML中的元素可分为两种类型：块级元素和行级元素。这些元素的类型是通过文档类型定义（DTD）来指明。块级元素：显示在一块内，会自动换行，元素会从上到下垂直排列，各自占一行，如p,ul,form,div等标签元素。行内元素：元素在一行内水平排列，高度由元素的内容决定，height属性不起作用，如span,input等元素。">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS块级元素和行内元素">
+<meta property="og:url" content="http://blog.poetries.top/2016/03/16/CSS块级元素和行内元素/index.html">
+<meta property="og:site_name" content="Poetry&#39;s Blog">
+<meta property="og:description" content="HTML中的元素可分为两种类型：块级元素和行级元素。这些元素的类型是通过文档类型定义（DTD）来指明。块级元素：显示在一块内，会自动换行，元素会从上到下垂直排列，各自占一行，如p,ul,form,div等标签元素。行内元素：元素在一行内水平排列，高度由元素的内容决定，height属性不起作用，如span,input等元素。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-23T01:41:37.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS块级元素和行内元素">
+<meta name="twitter:description" content="HTML中的元素可分为两种类型：块级元素和行级元素。这些元素的类型是通过文档类型定义（DTD）来指明。块级元素：显示在一块内，会自动换行，元素会从上到下垂直排列，各自占一行，如p,ul,form,div等标签元素。行内元素：元素在一行内水平排列，高度由元素的内容决定，height属性不起作用，如span,input等元素。">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=d671a41f" rel="stylesheet">
+
+
+  
+
+  
+
+  
+
+  <!-- 加载gitment的css和js文件 -->
+<link rel="stylesheet" href="/css/gitment.css"> 
+<script src="/js/gitment.js"></script>
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录<i class="iconfont toc-title" style="display:inline-block;color:#87998d;width:20px;height:20px;">&#xf004b;</i></strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、块级元素：block-element"><span class="toc-text">一、块级元素：block element</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、行内元素：inline-element"><span class="toc-text">二、行内元素：inline element</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、block（块）元素的特点"><span class="toc-text">三、block（块）元素的特点:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、inline元素的特点"><span class="toc-text">四、inline元素的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、常见的块状元素"><span class="toc-text">五、常见的块状元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、常见的内联元素"><span class="toc-text">六、常见的内联元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七，可变元素"><span class="toc-text">七，可变元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、行内元素与块级元素有什么不同"><span class="toc-text">八、行内元素与块级元素有什么不同</span></a></li></ol>
+  </div>
+  <i class="iconfont" id="toc-eye" style="display:inline-block;color:#b36619;position:absolute;top:72px;right:233px;cursor:pointer;
+    font-size: 24px;">&#xe61c;</i>
+  <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+	$("#toc-eye").click(function(){
+	
+			$("#toc.toc-article").toggle(1000);
+			$(this).css({
+				"right":"265px"
+			});
+		
+	});
+  </script>
+
+
+
+<div class="content content-post CENTER">
+   <canvas id="evanyou" width="1302" height="678" style="position: fixed;width: 100%;height: 100%;top: 0;left:0;z-index:-1;"></canvas>
+<article id="post-CSS块级元素和行内元素" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">CSS块级元素和行内元素</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.03.16</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Poetry</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/Front-End/">Front-End</a>
+  </span>
+
+
+
+      
+
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><code>HTML</code>中的元素可分为两种类型：块级元素和行级元素。这些元素的类型是通过文档类型定义（DTD）来指明。块级元素：显示在一块内，会自动换行，元素会从上到下垂直排列，各自占一行，如<code>p</code>,<code>ul</code>,<code>form</code>,<code>div</code>等标签元素。行内元素：元素在一行内水平排列，高度由元素的内容决定，<code>height</code>属性不起作用，如span,input等元素。</p>
+<a id="more"></a>
+<h3 id="一、块级元素：block-element"><a href="#一、块级元素：block-element" class="headerlink" title="一、块级元素：block element"></a>一、块级元素：block element</h3><hr>
+<p>每个块级元素默认占一行高度，一行内添加一个块级元素后无法一般无法添加其他元素（<code>float</code>浮动后除外）。两个块级元素连续编辑时，会在页面自动换行显示。块级元素一般可嵌套块级元素或行内元素；<br>块级元素一般作为容器出现，用来组织结构，但并不全是如此。有些块级元素，如只能包含块级元素。</p>
+<p>DIV 是最常用的块级元素，元素样式的<code>display:block</code>都是块级元素。它们总是以一个块的形式表现出来，并且跟同级的兄弟块依次竖直排列，左右撑满。</p>
+<h3 id="二、行内元素：inline-element"><a href="#二、行内元素：inline-element" class="headerlink" title="二、行内元素：inline element"></a>二、行内元素：inline element</h3><hr>
+<p>也叫内联元素、内嵌元素等；行内元素一般都是基于语义级(<code>semantic</code>)的基本元素，只能容纳文本或其他内联元素，常见内联元素 “a”。比如 SPAN 元素，IFRAME元素和元素样式的display : inline的都是行内元素。例如文字这类元素，各个字母 之间横向排列，到最右端自动折行。</p>
+<h3 id="三、block（块）元素的特点"><a href="#三、block（块）元素的特点" class="headerlink" title="三、block（块）元素的特点:"></a>三、block（块）元素的特点:</h3><hr>
+<p>①、总是在新行上开始；<br>②、高度，行高以及外边距和内边距都可控制；<br>③、宽度缺省是它的容器的100%，除非设定一个宽度。<br>④、它可以容纳内联元素和其他块元素</p>
+<h3 id="四、inline元素的特点"><a href="#四、inline元素的特点" class="headerlink" title="四、inline元素的特点"></a>四、inline元素的特点</h3><hr>
+<p>①、和其他元素都在一行上；<br>②、高，行高及外边距和内边距不可改变；<br>③、宽度就是它的文字或图片的宽度，不可改变<br>④、内联元素只能容纳文本或者其他内联元素</p>
+<p>对行内元素，需要注意如下:</p>
+<blockquote>
+<p>设置宽度width 无效。 设置高度<code>height</code> 无效，可以通过<code>line-height</code>来设置。 设置margin<br>只有左右<code>margin</code>有效，上下无效。<br>设置<code>padding</code>只有左右padding有效，上下则无效。注意元素范围是增大了，但是对元素周围的内容是没影响的。</p>
+</blockquote>
+<h3 id="五、常见的块状元素"><a href="#五、常见的块状元素" class="headerlink" title="五、常见的块状元素"></a>五、常见的块状元素</h3><hr>
+<blockquote>
+<p>address – 地址<br>blockquote – 块引用<br>center – 举中对齐块<br>dir – 目录列表<br>div – 常用块级容易，也是CSS layout的主要标签<br>dl – 定义列表<br>fieldset – form控制组<br>form – 交互表单<br>h1 – 大标题<br>h2 – 副标题<br>h3 – 3级标题<br>h4 – 4级标题<br>h5 – 5级标题<br>h6 – 6级标题<br>hr – 水平分隔线<br>isindex – input prompt<br>menu – 菜单列表<br>noframes – frames可选内容，（对于不支持frame的浏览器显示此区块内容<br>noscript – 可选脚本内容（对于不支持script的浏览器显示此内容）<br>ol – 有序表单<br>p – 段落<br>pre – 格式化文本<br>table – 表格<br>ul – 无序列表</p>
+</blockquote>
+<h3 id="六、常见的内联元素"><a href="#六、常见的内联元素" class="headerlink" title="六、常见的内联元素"></a>六、常见的内联元素</h3><hr>
+<blockquote>
+<p>a – 锚点<br>abbr – 缩写<br>acronym – 首字<br>b – 粗体(不推荐)<br>bdo – bidi override<br>big – 大字体<br>br – 换行<br>cite – 引用<br>code – 计算机代码(在引用源码的时候需要)<br>dfn – 定义字段<br>em – 强调<br>font – 字体设定(不推荐)<br>i – 斜体<br>img – 图片<br>input – 输入框<br>kbd – 定义键盘文本<br>label – 表格标签<br>q – 短引用<br>s – 中划线(不推荐)<br>samp – 定义范例计算机代码<br>select – 项目选择<br>small – 小字体文本<br>span – 常用内联容器，定义文本内区块<br>strike – 中划线<br>strong – 粗体强调<br>sub – 下标<br>sup – 上标<br>textarea – 多行文本输入框<br>tt – 电传文本<br>u – 下划线</p>
+</blockquote>
+<h3 id="七，可变元素"><a href="#七，可变元素" class="headerlink" title="七，可变元素"></a>七，可变元素</h3><hr>
+<p>可变元素为根据上下文语境决定该元素为块元素或者内联元素。</p>
+<ul>
+<li>applet - java applet</li>
+<li>button - 按钮</li>
+<li>del - 删除文本</li>
+<li>iframe - inline frame</li>
+<li>ins - 插入的文本</li>
+<li>map - 图片区块(map)</li>
+<li>object - object对象</li>
+<li>script - 客户端脚本</li>
+</ul>
+<h3 id="八、行内元素与块级元素有什么不同"><a href="#八、行内元素与块级元素有什么不同" class="headerlink" title="八、行内元素与块级元素有什么不同"></a>八、行内元素与块级元素有什么不同</h3><hr>
+<ul>
+<li><p>区别一：</p>
+<ul>
+<li><p>块级：块级元素会独占一行，默认情况下宽度自动填满其父元素宽度</p>
+</li>
+<li><p>行内：行内元素不会独占一行，相邻的行内元素会排在同一行。其宽度随内容的变化而变化。</p>
+</li>
+</ul>
+</li>
+<li><p>区别二：</p>
+<ul>
+<li><p>块级：块级元素可以设置宽高</p>
+</li>
+<li><p>行内：行内元素不可以设置宽高</p>
+</li>
+</ul>
+</li>
+<li><p>区别三：</p>
+<ul>
+<li><p>块级：块级元素可以设置<code>margin</code>，<code>padding</code></p>
+</li>
+<li><p>行内：行内元素水平方向的<code>margin-left</code>; <code>margin-right</code>;</p>
+</li>
+</ul>
+<p>padding-left; padding-right;可以生效。但是竖直方向的<code>margin-bottom;</code> <code>margin-top</code>; <code>padding-top</code>; <code>padding-bottom;</code>却不能生效。</p>
+</li>
+</ul>
+<ul>
+<li><p>区别四：</p>
+<ul>
+<li><p>块级：<code>display:block;</code></p>
+</li>
+<li><p>行内：<code>display:inline;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>可以通过修改<code>display</code>属性来切换块级元素和行内元素</p>
+
+    
+  </div>
+</article>
+
+<!-- 使用Gitmemt作为评论系统 -->
+<div id="gitment"></div>
+<!-- 主页不要加载gitment -->
+
+<script>
+var gitment = new Gitment({
+  owner: 'poetries',
+  repo: 'poetries.github.io',
+  oauth: {
+    client_id: '1e8dd8b1f1cc682a0e96',
+    client_secret: 'e2e4411114035de33408c87ee77453e034a3da04',
+  },
+})
+gitment.render('gitment')
+</script>
+ 
+
+
+
+<button class="assist-btn2 circle" id="assist_btn2" title="点亮屏幕" style="left: 27px; top: 152px;">
+         <i class="iconfont" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+<button class="assist-btn1 circle" id="assist_btn1" title="关闭屏幕亮度" style="left: 27px; top: 152px;">
+         <i class="iconfont toc-title" style="display:inline-block;color:red;width:20px;height:20px;">&#xe61d;</i>
+    </button>
+	
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>	
+<script type="text/javascript">
+
+
+    // white theme
+    var body = {color: "#555", background: "#000"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#222"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        //$("#assist_btn1").hide(1500);
+    }
+
+    $(function () {
+		$("#assist_btn2").css("display","none");
+        $("#assist_btn1").click(function() {
+            switch_theme();
+			$("div#toc.toc-article").css({
+				"background":"#eaeaea",
+				"opacity":1
+			});
+			$(".toc-article ol").show();
+			$("#toc.toc-article .toc-title").css("color","#a98602");
+			$("#assist_btn1").css("display","none");
+			$("#assist_btn2").css("display","block");
+        });
+		$("#assist_btn2").click(function() {
+			$("#assist_btn2").css("display","none");
+			$("#assist_btn1").css("display","block");
+			 $("body").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+            $(".header, .footer").css("background","url(http://www.miaov.com/static/ie/images/news/bg.png)")
+			$(".toc-article ol").toggle(1000);
+        });
+    });
+
+	
+	//背景随机
+
+	var Y, O, E, L, B, C, T, z, N, S, A, I;
+	!function() {
+	var e = function() {
+		for (O.clearRect(0, 0, L, B), T = [{
+			x: 0,
+			y: .7 * B + C
+		}, {
+			x: 0,
+			y: .7 * B - C
+		}]; T[1].x < L + C;) t(T[0], T[1])
+	}, t = function(e, t) {
+			O.beginPath(), O.moveTo(e.x, e.y), O.lineTo(t.x, t.y);
+			var n = t.x + (2 * I() - .25) * C,
+				r = a(t.y);
+			O.lineTo(n, r), O.closePath(), N -= S / -50, O.fillStyle = "#" + (127 * A(N) + 128 << 16 | 127 * A(N + S / 3) + 128 << 8 | 127 * A(N + S / 3 * 2) + 128).toString(16), O.fill(), T[0] = T[1], T[1] = {
+				x: n,
+				y: r
+			}
+		}, a = function n(e) {
+			var t = e + (2 * I() - 1.1) * C;
+			return t > B || t < 0 ? n(e) : t
+		};
+	Y = document.getElementById("evanyou"), O = Y.getContext("2d"), E = window.devicePixelRatio || 1, L = window.innerWidth, B = window.innerHeight, C = 90, z = Math, N = 0, S = 2 * z.PI, A = z.cos, I = z.random, Y.width = L * E, Y.height = B * E, O.scale(E, E), O.globalAlpha = .6, document.onclick = e, document.ontouchstart = e, e()
+	}()
+
+          
+
+
+
+</script>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持poetries</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/weixin.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/zhifubao.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
